@@ -17,7 +17,7 @@
 
             <input type="text" name="nombre">
             <br>
-            <label for="Apellido">Apellido</label> <br>
+            <label for="Apellido">Nombre</label> <br>
             <input type="text" name="apellido"> <br>
             <input type="submit" value="Enviar"> <br>
 
