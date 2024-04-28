@@ -8,7 +8,9 @@ import java.io.PrintWriter;
 
 //El urlPátters significa desde donde se puede acceder a este servlet, en este casoo puedes poonerlo desde /* que es la forma correcta 
 //para que se pueda mostrar dedde todos lados*/
-@WebServlet(name= "Demoservlet", urlPatterns = "/")
+
+//@WebServlet(name = "Demoservlet", urlPatterns = "/")
+
 public class Demoservlet extends HttpServlet {
 
    
