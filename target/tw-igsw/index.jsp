@@ -26,11 +26,11 @@
         </form>
 
         <!-- Redireccionar al servlet al cargar para que verifique la cookie-->
-        <script>
+        <!-- <script>
             window.onload = function () {
                 window.location.href = "http://localhost:8080/tw-igsw/LoginServlet";
             };
-        </script>
+        </script> -->
     </body>
 
     </html>
