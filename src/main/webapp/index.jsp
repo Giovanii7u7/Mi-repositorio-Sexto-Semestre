@@ -25,7 +25,7 @@
             <input type="submit" value="Iniciar sesión">
         </form>
 
-        <!-- Redireccionar al servlet al cargar la página -->
+        <!-- Redireccionar al servlet al cargar para que verifique la cookie-->
         <script>
             window.onload = function () {
                 window.location.href = "http://localhost:8080/tw-igsw/LoginServlet";
