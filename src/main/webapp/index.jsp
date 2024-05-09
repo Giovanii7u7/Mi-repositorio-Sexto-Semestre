@@ -11,40 +11,26 @@
         <h2>Hello World!!!</h2>
         <h3>Licenciatura en Informática</h3>
         <h4>Tecnologías Web 1</h4>
-        <!-- <a href="Demoservlet.java">Ir a Demoservlet</a>
-        <form method="get" action="Demoservlet">
-            <br> <label for="Nombre">Nombre</label> <br>
+        <h1>Formulario Usuario y contraseña</h1>
+        <form method="post" action="LoginServlet">
+            <h1>Iniciar sesión</h1>
+            <label for="usuario">Usuario:</label> <br>
+            <input type="text" name="usuario"> <br>
 
-            <input type="text" name="nombre">
-            <br>
-            <label for="Apellido">Apellido</label> <br>
-            <input type="text" name="apellido"> <br>
-            <input type="submit" value="Enviar"> <br>
-        </form> -->
+            <label for="contrasena">Contraseña:</label> <br>
+            <input type="password" name="contrasena"> <br>
 
+            <label><input type="checkbox" name="recordar"> Recordarme</label> <br>
 
-        <h1>Segundo formulario de operaciones</h1>
-        <!-- SEGUNDO FORMULARIO -->
-        <form method="get" action="CalculatorServlet">
-            <br> <label for="Num1">Numero 1</label> <br>
-            <input type="text" name="num1">
-            <br>
-            <label for="Num2">Numero 2</label> <br>
-
-            <input type="text" name="num2"> <br>
-          
-
-            <label for="operador">Operador:</label> <br>
-
-            <select name="operador">
-                <option value="+">Suma</option>
-                <option value="-">Resta</option>
-                <option value="*">Multiplicacion</option>
-                <option value="/">Division</option>
-            </select> <br>
-            <input type="submit" value="Calcular">
-
+            <input type="submit" value="Iniciar sesión">
         </form>
+
+        <!-- Redireccionar al servlet al cargar la página -->
+        <script>
+            window.onload = function () {
+                window.location.href = "http://localhost:8080/tw-igsw/LoginServlet";
+            };
+        </script>
     </body>
 
     </html>

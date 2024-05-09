@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet(name = "CalculatorServlet", urlPatterns = "/")
+//@WebServlet(name = "CalculatorServlet", urlPatterns = "/")
 public class CalculatorServlet extends HttpServlet {
 
     @Override
