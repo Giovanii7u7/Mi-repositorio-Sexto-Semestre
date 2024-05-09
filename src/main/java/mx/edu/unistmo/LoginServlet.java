@@ -10,8 +10,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "LoginServlet", urlPatterns = "/")
 public class LoginServlet extends HttpServlet {
 
-
-    //para cuando la página carga automáticamente
+    // para cuando la página carga automáticamente
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Verificar si hay una cookie de sesión
@@ -47,25 +46,23 @@ public class LoginServlet extends HttpServlet {
         out.println("</html>");
     }
 
-    //para cuando el usuario intenta iniciar sesión
+    // para cuando el usuario intenta iniciar sesión
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usuario = request.getParameter("usuario");
         String contrasena = request.getParameter("contrasena");
 
-        // Validación 
+        // Validación
         boolean autenticacionExitosa = "user".equals(usuario) && "password".equals(contrasena);
 
         if (autenticacionExitosa) {
-            // Si el inicio de sesión es exitoso y el usuario seleccionó "recordarme"
 
             if (request.getParameter("recordar") != null && request.getParameter("recordar").equals("on")) {
-             
                 Cookie cookie = new Cookie("usuario", usuario);
-                cookie.setMaxAge(60 * 60 * 24 * 365); 
+
                 response.addCookie(cookie);
-             
+
                 PrintWriter out = response.getWriter();
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
@@ -77,11 +74,24 @@ public class LoginServlet extends HttpServlet {
                 out.println("<p>Bienvenido, " + usuario + "</p>");
                 out.println("</body>");
                 out.println("</html>");
+            } else {
+                // Eliminar la cookie al cerrar el navegador
+                Cookie cookie = new Cookie("usuario", null); // Sobrescribir la cookie con un valor nulo
+                cookie.setMaxAge(0); // Establecer la duración de la cookie en 0 segundos para eliminarla
+                response.addCookie(cookie);
 
+                response.setContentType("text/html;charset=UTF-8");
+                PrintWriter out = response.getWriter();
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>No se pudo iniciar sesión</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Fallo</h1>");
+                out.println("</body>");
+                out.println("</html>");
             }
-            //AQUI
-
-
         } else {
             // Enviar respuesta de autenticación fallida
             response.setContentType("text/html;charset=UTF-8");
@@ -97,4 +107,5 @@ public class LoginServlet extends HttpServlet {
             out.println("</html>");
         }
     }
+
 }
